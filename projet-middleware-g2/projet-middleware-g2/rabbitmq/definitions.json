@@ -1,0 +1,13 @@
+{
+  "queues": [
+    { "name": "notification.dlq", "vhost": "/", "durable": true, "auto_delete": false, "arguments": {} },
+    { "name": "notification.queue", "vhost": "/", "durable": true, "auto_delete": false,
+      "arguments": { "x-dead-letter-exchange": "", "x-dead-letter-routing-key": "notification.dlq" } }
+  ],
+  "exchanges": [
+    { "name": "rdv.events", "vhost": "/", "type": "topic", "durable": true, "auto_delete": false, "internal": false, "arguments": {} }
+  ],
+  "bindings": [
+    { "source": "rdv.events", "vhost": "/", "destination": "notification.queue", "destination_type": "queue", "routing_key": "rdv.created", "arguments": {} }
+  ]
+}

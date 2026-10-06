@@ -1,0 +1,18 @@
+{
+  "realm": "hopital",
+  "enabled": true,
+  "roles": { "realm": [ { "name": "patient" }, { "name": "medecin" }, { "name": "agent" } ] },
+  "clients": [
+    { "clientId": "rdv-app", "protocol": "openid-connect", "enabled": true, "publicClient": true,
+      "directAccessGrantsEnabled": true, "standardFlowEnabled": true,
+      "redirectUris": [ "http://localhost:8080/*" ] }
+  ],
+  "users": [
+    { "username": "patient1", "enabled": true, "emailVerified": true, "firstName": "Awa", "lastName": "Kone", "email": "patient1@hopital.ci",
+      "credentials": [ { "type": "password", "value": "patient123", "temporary": false } ], "realmRoles": [ "patient" ] },
+    { "username": "medecin1", "enabled": true, "emailVerified": true, "firstName": "Koffi", "lastName": "Yao", "email": "medecin1@hopital.ci",
+      "credentials": [ { "type": "password", "value": "medecin123", "temporary": false } ], "realmRoles": [ "medecin" ] },
+    { "username": "agent1", "enabled": true, "emailVerified": true, "firstName": "Mariam", "lastName": "Traore", "email": "agent1@hopital.ci",
+      "credentials": [ { "type": "password", "value": "agent123", "temporary": false } ], "realmRoles": [ "agent" ] }
+  ]
+}
